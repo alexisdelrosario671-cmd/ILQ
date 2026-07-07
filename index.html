@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ILQ</title>
-<meta name="description" content="ILQ — sitio informativo corporativo.">
+<meta name="description" content="ILQ — servicios de tratamiento y procesamiento de cacao.">
+<meta name="theme-color" content="#170D07">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -651,17 +652,58 @@ footer{
   .nav-cta{display:none;}
   .hamburger{display:flex;}
   .hero-grid{grid-template-columns:1fr;gap:2.5rem;}
-  .hero-mark{order:-1;max-width:260px;margin:0 auto;}
+  .hero-mark{order:-1;min-height:auto;max-width:280px;margin:0 auto;}
+  .hero-mark::before{inset:-6%;}
+  .hero-logo-img{width:100%;}
   .hero-stats{grid-template-columns:repeat(2,1fr);row-gap:1.8rem;}
   .about-grid{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .contact-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:2.4rem;}
 }
 @media (max-width:600px){
   .gallery-grid{grid-template-columns:1fr;}
   .social-grid{grid-template-columns:1fr;}
   section{padding:4.5rem 0;}
+
+  .brand-logo{height:40px;}
+  header.scrolled .brand-logo{height:34px;}
+
+  .hero{padding:7rem 0 3rem;min-height:auto;}
+  .hero h1{font-size:clamp(2.3rem,10vw,3.2rem);}
+  .hero p.lead{font-size:.98rem;max-width:none;}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .btn{width:100%;justify-content:center;}
+  .hero-mark{max-width:220px;}
+
+  .hero-stats{margin-top:3rem;padding-top:1.4rem;gap:1.4rem 1rem;}
+  .hero-stats .stat b{font-size:1.7rem;}
+  .hero-stats .stat span{font-size:.62rem;}
+
+  .section-head h2{font-size:clamp(1.8rem,7vw,2.4rem);}
+  .section-head p{font-size:.96rem;}
+
+  .value-item{gap:.9rem;padding-bottom:1.3rem;}
+  .g-body{padding:1.1rem 1.2rem 1.3rem;}
+  .g-body h3{font-size:1.2rem;}
+
+  .carousel{aspect-ratio:4/3;border-radius:10px;}
+  .carousel-arrow{width:38px;height:38px;}
+  .carousel-arrow svg{width:16px;height:16px;}
+  .carousel-arrow.prev{left:.6rem;}
+  .carousel-arrow.next{right:.6rem;}
+  .carousel-dots{bottom:.8rem;}
+
+  .contact-grid{gap:2rem;}
+  .social-btn{padding:.9rem 1rem;}
+
+  .footer-row{flex-direction:column;text-align:center;gap:.8rem;}
 }
+@media (max-width:400px){
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .carousel{aspect-ratio:1/1;}
+  .mobile-menu{width:82vw;}
+}
+
 </style>
 </head>
 <body>
@@ -684,7 +726,7 @@ footer{
     <nav class="main-links">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
-      <a href="#momentos">Momentos</a>
+      <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <a href="#contacto" class="nav-cta" id="navContactBtn">Escríbenos</a>
@@ -698,7 +740,7 @@ footer{
 <nav class="mobile-menu" id="mobileMenu">
   <a href="#nosotros">Nosotros</a>
   <a href="#servicios">Servicios</a>
-  <a href="#momentos">Momentos</a>
+  <a href="#proceso">Proceso</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
@@ -706,12 +748,12 @@ footer{
 <section class="hero" id="top">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"> Exportación de cacao</span>
-      <h1>Del cacao<br><em>ecuatoriano al mundo.</em></h1>
+      <span class="eyebrow">// Servicios de procesamiento de cacao</span>
+      <h1>Tratamos y procesamos<br><em>el cacao con precisión.</em></h1>
       <p class="lead">
-        ILQ exporta cacao ecuatoriano desde Guayaquil hacia mercados internacionales, cuidando
-        cada etapa del proceso — desde la relación directa con los productores hasta el control
-        de calidad previo al embarque.
+        ILQ es una empresa de servicios especializada en el tratamiento y procesamiento de cacao.
+        Trabajamos como aliados técnicos de productores y exportadores, aplicando procesos de
+        fermentación, secado y clasificación que elevan la calidad del grano.
       </p>
       <div class="hero-actions">
         <a href="#nosotros" class="btn btn-solid">Conocer la empresa</a>
@@ -728,10 +770,10 @@ footer{
   </div>
 
   <div class="hero-stats container">
-    <div class="stat"><b> +00 </b><span>Toneladas exportadas </span></div>
-    <div class="stat"><b> +15 </b><span> Países destino </span></div>
-    <div class="stat"><b> +20 </b><span> Fincas aliadas </span></div>
-    <div class="stat"><b> +01 </b><span> Años exportando </span></div>
+    <div class="stat"><b>+00</b><span>Toneladas procesadas</span></div>
+    <div class="stat"><b>+00</b><span>Clientes atendidos</span></div>
+    <div class="stat"><b>+00</b><span>Años de experiencia</span></div>
+    <div class="stat"><b>+00</b><span>Controles de calidad</span></div>
   </div>
 
   <div class="scroll-cue"><span>Scroll</span><div class="dot"></div></div>
@@ -750,37 +792,37 @@ footer{
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Quiénes somos</span>
-      <h2>Exportamos el cacao de Ecuador con trazabilidad, desde la finca hasta el puerto.</h2>
-      <p>Ecuador es reconocido mundialmente por su cacao fino de aroma. ILQ conecta ese origen con compradores internacionales, cuidando la calidad en cada etapa del proceso.</p>
+      <h2>Servicios técnicos de tratamiento y procesamiento de cacao.</h2>
+      <p>ILQ no compra ni vende cacao. Somos un aliado de servicio para productores y exportadores, encargados de procesar el grano con los estándares que exige el mercado internacional.</p>
     </div>
 
     <div class="about-grid">
       <div class="about-copy reveal">
         <p>
-          ILQ es una empresa exportadora de cacao ecuatoriano, con operación desde Guayaquil hacia mercados
-          internacionales. Trabajamos directamente con productores del país para garantizar un grano de
-          calidad, con trazabilidad desde el origen hasta el embarque.
+          ILQ es una empresa de servicios especializada en el tratamiento y procesamiento de cacao
+          ecuatoriano. Trabajamos con productores y empresas exportadoras, aplicando los procesos
+          técnicos necesarios para que el grano llegue a su destino con la calidad requerida.
         </p>
         <p>
-          Nuestro trabajo combina selección rigurosa del grano, control de calidad, correcto acopio y
-          logística de exportación, para entregar a cada cliente un cacao consistente, bien documentado
-          y listo para el mercado internacional.
+          Nuestro servicio cubre fermentación controlada, secado y clasificación del grano, con
+          control de calidad en cada fase. No participamos en la compra ni venta del cacao — nuestro
+          trabajo es exclusivamente el proceso técnico sobre el producto de nuestros clientes.
         </p>
-        <div class="note">Aplicamos altos estándares de calidad en cada etapa del proceso, desde la selección del grano hasta la logística de exportación, asegurando un producto uniforme, seguro y preparado para satisfacer las exigencias del mercado internacional.</div>
+        <div class="note">Nota: este texto es una base editable — puede ajustarse con datos exactos de la empresa (año de fundación, certificaciones, capacidad instalada, etc.).</div>
       </div>
 
       <div class="value-list">
         <div class="value-item reveal reveal-delay-1">
           <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
-          <div><h3>Calidad del grano</h3><p>Selección y control de calidad en cada lote, antes de la exportación.</p></div>
+          <div><h3>Precisión técnica</h3><p>Control estricto de tiempos, temperatura y humedad en cada fase del proceso.</p></div>
         </div>
         <div class="value-item reveal reveal-delay-2">
-          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 5 10 5 14a7 7 0 0014 0c0-4-3-8-7-12z"/></svg></div>
-          <div><h3>Origen directo</h3><p>Relación cercana con productores ecuatorianos de cacao fino de aroma.</p></div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-9a4 4 0 014-4h8a4 4 0 014 4v9M4 21h16M9 12h6"/></svg></div>
+          <div><h3>Infraestructura propia</h3><p>Instalaciones equipadas para fermentación, secado y clasificación a escala.</p></div>
         </div>
         <div class="value-item reveal reveal-delay-3">
-          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h6l2-4 4 8 2-4h6"/></svg></div>
-          <div><h3>Logística confiable</h3><p>Exportación puntual y trazable, desde el acopio hasta el destino final.</p></div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div><h3>Servicio a medida</h3><p>Procesos adaptados a los requisitos y estándares de cada cliente.</p></div>
         </div>
       </div>
     </div>
@@ -792,87 +834,87 @@ footer{
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Servicios</span>
-      <h2>De la finca al puerto de embarque.</h2>
-      <p>Ofrecemos un servicio integral para la cadena de exportación del cacao, asegurando calidad, seguridad y cumplimiento en cada fase del proceso, desde el productor hasta el mercado internacional.</p>
+      <h2>Procesos técnicos.</h2>
+      <p>ILQ - servicios de tratamiento de cacao para sus clientes. </p>
     </div>
 
     <div class="filter-row reveal">
       <button class="filter-btn active" data-filter="all">Todo</button>
-      <button class="filter-btn" data-filter="cat-1">Acopio</button>
-      <button class="filter-btn" data-filter="cat-2">Control de calidad</button>
-      <button class="filter-btn" data-filter="cat-3">Exportación</button>
+      <button class="filter-btn" data-filter="cat-1">Fermentación</button>
+      <button class="filter-btn" data-filter="cat-2">Secado</button>
+      <button class="filter-btn" data-filter="cat-3">Clasificación y calidad</button>
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
       <!-- Tarjeta 1 -->
       <div class="g-card reveal" data-cat="cat-1">
         <div class="g-photo">
-          <img src="Produccion-de-cacao.png" alt="produccion de cacao">
+          <img src="prifermetacion.png" alt="Fermentación controlada">
         </div>
         <div class="g-body">
-          <span class="g-tag">Acopio</span>
-          <h3>Relación con productores</h3>
-          <p>Trabajamos de la mano con productores locales, fomentando relaciones de confianza y comercio justo. Brindamos acompañamiento durante todo el proceso para garantizar cacao de excelente calidad desde su origen.</p>
+          <span class="g-tag">Fermentación</span>
+          <h3>Fermentación controlada</h3>
+          <p>fermentación controlada es un proceso esencial para desarrollar el sabor, aroma y color característicos del cacao. Mediante un monitoreo constante de las condiciones del lote, se garantiza una fermentación uniforme que cumple con los estándares de calidad requeridos para la exportación.</p>
         </div>
       </div>
 
       <!-- Tarjeta 2 -->
       <div class="g-card reveal reveal-delay-1" data-cat="cat-1">
         <div class="g-photo">
-          <img src="repce.jpg" alt="Recepción del grano">
+          <img src="temperatura.png" alt="Control de tiempos y temperatura">
         </div>
         <div class="g-body">
-          <span class="g-tag">Acopio</span>
-          <h3>Recepción del grano</h3>
-          <p>Cada lote de cacao es recibido bajo estrictos protocolos de inspección, pesaje y registro, asegurando la trazabilidad y el cumplimiento de nuestros estándares de calidad desde el primer momento.</p>
+          <span class="g-tag">Fermentación</span>
+          <h3>Control de tiempos y temperatura</h3>
+          <p>La temperatura y los tiempos de fermentación permite asegurar un desarrollo adecuado del grano. Este control técnico ayuda a prevenir defectos, mantener la uniformidad del lote y obtener un cacao con mejores características sensoriales.</p>
         </div>
       </div>
 
       <!-- Tarjeta 3 -->
       <div class="g-card reveal reveal-delay-2" data-cat="cat-2">
         <div class="g-photo">
-          <img src="clasif.jpg" alt="Clasificación del grano">
+          <img src="secado natural.png" alt="Secado natural">
         </div>
         <div class="g-body">
-          <span class="g-tag">Control de calidad</span>
-          <h3>Clasificación del grano</h3>
-          <p>Realizamos un riguroso proceso de selección, clasificación y evaluación física del cacao para garantizar uniformidad, pureza y el cumplimiento de los requisitos del mercado internacional.</p>
+          <span class="g-tag">Secado</span>
+          <h3>Secado natural</h3>
+          <p>El secado natural reduce gradualmente la humedad del cacao utilizando la energía solar y una adecuada circulación de aire. Este proceso preserva la calidad del grano, evita la formación de mohos y garantiza una conservación óptima para su almacenamiento y exportación.</p>
         </div>
       </div>
 
       <!-- Tarjeta 4 -->
       <div class="g-card reveal" data-cat="cat-2">
         <div class="g-photo">
-          <img src="anali.jpg" alt="Análisis de laboratorio">
+          <img src="secado mecanico.png" alt="Secado mecánico">
         </div>
         <div class="g-body">
-          <span class="g-tag">Control de calidad</span>
-          <h3>Análisis de laboratorio</h3>
-          <p>Verificamos cada lote mediante análisis especializados que garantizan el cumplimiento de las exigencias nacionales e internacionales.</p>
+          <span class="g-tag">Secado</span>
+          <h3>Secado mecánico</h3>
+          <p>El secado mecánico emplea equipos especializados para controlar temperatura y flujo de aire cuando las condiciones climáticas no permiten un secado natural eficiente. Este método asegura una reducción uniforme de la humedad sin afectar la calidad del cacao.</p>
         </div>
       </div>
 
       <!-- Tarjeta 5 -->
       <div class="g-card reveal reveal-delay-1" data-cat="cat-3">
         <div class="g-photo">
-          <img src="empaqu.jpg" alt="Empaque y contenedores">
+          <img src="clasificacion.png" alt="Clasificación por calibre">
         </div>
         <div class="g-body">
-          <span class="g-tag">Exportación</span>
-          <h3>Empaque y contenedores</h3>
-          <p>Protegemos la calidad del cacao con un proceso de empaque seguro y eficiente, listo para afrontar largas rutas de exportación.</p>
+          <span class="g-tag">Clasificación y calidad</span>
+          <h3>Clasificación por calibre</h3>
+          <p>Los granos de cacao son seleccionados y clasificados según su tamaño, peso y uniformidad. Este proceso facilita la estandarización de los lotes, mejora la presentación del producto y asegura el cumplimiento de los requisitos del mercado internacional.</p>
         </div>
       </div>
 
       <!-- Tarjeta 6 -->
       <div class="g-card reveal reveal-delay-2" data-cat="cat-3">
         <div class="g-photo">
-          <img src="embarqu.jpg" alt="Embarque al puerto">
+          <img src="analisis de laboratorio.png" alt="Análisis de laboratorio">
         </div>
         <div class="g-body">
-          <span class="g-tag">Exportación</span>
-          <h3>Embarque al puerto</h3>
-          <p>Gestionamos toda la logística de despacho con precisión, asegurando entregas puntuales y un transporte confiable hacia destinos internacionales.</p>
+          <span class="g-tag">Clasificación y calidad</span>
+          <h3>Análisis de laboratorio</h3>
+          <p>El análisis de laboratorio verifica parámetros físicos, químicos y sensoriales del cacao, como humedad, fermentación, corte, impurezas y calidad general. Estos controles garantizan que cada lote cumpla con las especificaciones técnicas y los estándares exigidos para su comercialización.</p>
         </div>
       </div>
     </div>
@@ -888,24 +930,24 @@ footer{
 </div>
 
 <!-- ============ CARRUSEL DESTACADO ============ -->
-<section class="carousel-section" id="momentos">
+<section class="carousel-section" id="proceso">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Momentos destacados</span>
-      <h2>El cacao, en imágenes.</h2>
-      <p>Descubre a través de nuestra galería los momentos más importantes de nuestro trabajo: desde el cultivo y la cosecha hasta el procesamiento, control de calidad y exportación del cacao.</p>
+      <span class="eyebrow">Nuestro proceso</span>
+      <h2>El tratamiento del cacao, en imágenes.</h2>
+      <p> Proceso esencial que garantiza la calidad del grano desde la cosecha hasta su preparación para la comercialización o exportación.</p>
     </div>
 
     <div class="carousel reveal" id="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-slide is-active">
-          <img src="Produccion-de-cacao.png" alt="ILQ - imagen 1">
+          <img src="cacaooe.png" alt="ILQ - imagen 1">
         </div>
         <div class="carousel-slide">
-          <img src="asass.jpg" alt="ILQ - imagen 2">
+          <img src="cocoaaa.png" alt="ILQ - imagen 2">
         </div>
         <div class="carousel-slide">
-          <img src="cocoa 1.jpg" alt="ILQ - imagen 3">
+          <img src="ceceao.png" alt="ILQ - imagen 3">
         </div>
       </div>
 
@@ -931,7 +973,7 @@ footer{
     <div class="section-head reveal">
       <span class="eyebrow">Contacto</span>
       <h2>Hablemos.</h2>
-      <p>Estamos listos para atender tus consultas y brindarte la información que necesitas. Contáctanos y descubre cómo podemos ser tu aliado estratégico en la exportación de cacao de alta calidad.</p>
+      <p> </p>
     </div>
 
     <div class="contact-grid">
@@ -939,15 +981,15 @@ footer{
         <h3>Datos directos</h3>
         <div class="contact-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 7l9 6 9-6M4 5h16v14H4z"/></svg>
-          <a href="mailto:correo@ilq.com" id="contactEmailLink">correo@ilq.com </a>
+          <a href="mailto:correo@ilq.com" id="contactEmailLink">correo@ilq.com <!-- editable --></a>
         </div>
         <div class="contact-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.13.98.36 1.93.68 2.83a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.25-1.2a2 2 0 012.11-.45c.9.32 1.85.55 2.83.68A2 2 0 0122 16.92z"/></svg>
-          <a href="tel:+593000000000">+593 00 000 0000 </a>
+          <a href="tel:+593000000000">+593 00 000 0000 <!-- editable --></a>
         </div>
         <div class="contact-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Guayaquil, Ecuador </span>
+          <span>Guayaquil, Ecuador <!-- editable --></span>
         </div>
       </div>
 
@@ -956,7 +998,7 @@ footer{
         <div class="social-grid">
           <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg><span>Facebook</span></a>
           <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 4.9 4.9.07 1.3.08 1.6.08 4.8s0 3.6-.08 4.9c-.15 3.2-1.7 4.8-4.9 4.9-1.3.07-1.6.08-4.9.08s-3.6 0-4.9-.08c-3.2-.15-4.8-1.7-4.9-4.9C2.1 15.6 2.1 15.3 2.1 12s0-3.6.08-4.9C2.3 3.9 3.9 2.3 7.1 2.2 8.4 2.2 8.7 2.2 12 2.2zM12 0C8.7 0 8.3 0 7 0.07 2.7.27.3 2.6.08 6.9 0 8.3 0 8.7 0 12s0 3.7.07 5.1c.2 4.3 2.6 6.7 6.9 6.9C8.3 24 8.7 24 12 24s3.7 0 5.1-.07c4.3-.2 6.7-2.6 6.9-6.9.07-1.4.07-1.8.07-5.1s0-3.7-.07-5.1c-.2-4.3-2.6-6.6-6.9-6.86C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.5a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg><span>Instagram</span></a>
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22.4 22h-6.9l-5.4-7-6.2 7H1l7.1-8.1L1.8 2h7l4.9 6.4L18.2 2zm-1.2 18h1.9L7.1 4H5.1l11.9 16z"/></svg><span>X</span></a>
+          <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22.4 22h-6.9l-5.4-7-6.2 7H1l7.1-8.1L1.8 2h7l4.9 6.4L18.2 2zm-1.2 18h1.9L7.1 4H5.1l11.9 16z"/></svg><span>X / Twitter</span></a>
           <a href="#" class="social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3a4.5 4.5 0 013.4 7.4l-8.4 9.4a1 1 0 01-1.5 0L2.6 10.4A4.5 4.5 0 019.3 4.3l.7.7.7-.7A4.5 4.5 0 0117.5 3zM6.5 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" opacity="0"/><path d="M20.5 4.2A5.5 5.5 0 0012.8 5l-.8.9-.8-.9A5.5 5.5 0 003.5 12l8.5 9 8.5-9a5.5 5.5 0 000-7.8z" opacity="0"/><path d="M16.6 5.8c-1.7-1.5-4.2-1.3-5.7.4l-.9 1-.9-1c-1.5-1.7-4-1.9-5.7-.4-1.9 1.7-2 4.6-.2 6.4L12 21l8.8-8.8c1.8-1.8 1.7-4.7-.2-6.4z"/></svg><span>WhatsApp</span></a>
         </div>
       </div>
@@ -977,12 +1019,15 @@ footer{
   <div class="container footer-row">
     <a href="#top" class="brand">IL<span style="color:var(--orange);">Q</span></a>
     <span>© <span id="year"></span> ILQ — Todos los derechos reservados.</span>
-    <span>Sitio base </span>
+    <span>Sitio base — pendiente de contenido final.</span>
   </div>
 </footer>
 
 <script>
-
+/* ---------- CORREO DE CONTACTO ----------
+   EDITABLE: cambia este correo por el real de ILQ.
+   Los botones "Escríbenos" / "Contáctenos" y el enlace
+   de la sección de contacto usan este mismo valor. */
 const CONTACT_EMAIL = 'correo@ilq.com';
 const CONTACT_SUBJECT = 'Contacto desde el sitio web ILQ';
 
